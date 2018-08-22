@@ -16,7 +16,7 @@ class HomebrewCassandrareaper < Formula
     # Remove unrecognized options if warned by configure
     # system "cmake", ".", *std_cmake_args
     system "mvn", "clean", "package" # if this fails, try separate make/make install steps
-    
+    prefix.install "src/server/target/cassandra-reaper-1.2.2.jar"
   end
 
   test do
