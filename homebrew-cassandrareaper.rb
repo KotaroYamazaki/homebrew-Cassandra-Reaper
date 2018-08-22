@@ -15,8 +15,9 @@ class HomebrewCassandrareaper < Formula
     # ENV.deparallelize  # if your formula fails when building in parallel
     # Remove unrecognized options if warned by configure
     # system "cmake", ".", *std_cmake_args
+    Dir.chdir "src"
     system "mvn", "clean", "package" # if this fails, try separate make/make install steps
-    prefix.install "src/server/target/cassandra-reaper-1.2.2.jar"
+    prefix.install "server/target/cassandra-reaper-1.2.2.jar"
   end
 
   test do
