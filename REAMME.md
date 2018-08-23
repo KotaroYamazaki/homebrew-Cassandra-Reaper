@@ -1,1 +1,0 @@
-formula of Cassandra-Reaper
