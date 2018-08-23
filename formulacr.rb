@@ -6,9 +6,9 @@ class Formulacr < Formula
 
   def install
     prefix.install "bin"
-    mv "server/target" "cassandrareaper"
+    mv "server/target","cassandrareaper"
     share.install "cassandrareaper"
-    mv "resource" "cassandrareaper"
+    mv "resource","cassandrareaper"
     etc.install "cassandrareaper"
   end
 end
