@@ -1,4 +1,4 @@
-class HomebrewCassandrareaper < Formula
+class formulacr < Formula
   homepage "http://cassandra-reaper.io"
   url "https://github.com/thelastpickle/cassandra-reaper/releases/download/1.2.2/cassandra-reaper-1.2.2-release.tar.gz"
   version "1.2.2"
