@@ -1,6 +1,6 @@
 # cassandra-reaper
 
-##install
+## install
 ```
-formula of Cassandra-Reaper
+brew install KotaroYamazaki/cassandrareaper/formulacr
 ```
