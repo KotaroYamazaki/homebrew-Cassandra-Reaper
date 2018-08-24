@@ -2,5 +2,5 @@
 
 ## install
 ```
-brew install KotaroYamazaki/cassandrareaper/formulacr
+brew install KotaroYamazaki/cassandra-reaper/cassandra-reaper
 ```
