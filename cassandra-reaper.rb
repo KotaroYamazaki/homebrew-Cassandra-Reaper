@@ -11,4 +11,9 @@ class CassandraReaper < Formula
     mv "resource", "cassandra-reaper"
     etc.install "cassandra-reaper"
   end
+
+  test do
+    system "#{bin}/cassandra-reaper", "--help"
+  end
+
 end
