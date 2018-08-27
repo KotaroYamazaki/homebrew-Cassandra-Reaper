@@ -4,9 +4,10 @@ class CassandraReaper < Formula
   url "https://github.com/thelastpickle/cassandra-reaper/releases/download/1.2.2/cassandra-reaper-1.2.2-release.tar.gz"
   sha256 "720aff69e3205301bc07399afc46dae3568d8effffa3712f1852a169ce9801db"
 
-  patch :p2 do
-    url "https://github.com/thelastpickle/cassandra-reaper/commit/4e26e1c70de8aa564e57ada287fffd6e7544914f.patch"
-    sha256 "6d2bdf3f574eccb90c339b498a8cc8663a11ccdc0596af8e5c492869e77920e5"
+
+  patch :p3 do
+    url "https://github.com/thelastpickle/cassandra-reaper/commit/4e26e1c70de8aa564e57ada287fffd6e7544914f.diff"
+    sha256 "0b1812e1121225fdcaaf97c2a9db00010ddc055ea14efd9674e5621fd4510bf9"
   end
 
   def install
