@@ -13,7 +13,15 @@ class CassandraReaper < Formula
   end
 
   test do
-    system "#{bin}/cassandra-reaper", "--help"
+    begin
+      pid = fork do
+        exec "#{bin}/cassandra-reaper"
+      end
+      output = shell_output("curl -sIm3 -o- http://localhost:8080")
+      assert_match /200 OK.*Server: Algernon/m, output
+    ensure
+      Process.kill("HUP", pid)
+    end
   end
 
 end
