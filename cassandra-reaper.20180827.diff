@@ -1,0 +1,20 @@
+--- cassandra-reaper.orig	2018-08-27 15:46:18.000000000 +0900
++++ cassandra-reaper	2018-07-25 20:51:17.000000000 +0900
+@@ -22,15 +22,11 @@
+ 
+ if [ -z "$CLASS_PATH" ]; then
+   echo "Looking for reaper in /usr/share/cassandra-reaper/"
+-  CLASS_PATH="/usr/share/cassandra-reaper/*:/usr/local/share/cassandra-reaper/*"
++  CLASS_PATH="/usr/share/cassandra-reaper/*"
+ fi
+ 
+ if [ $# -eq 0 ]; then
+-    if [ -e /usr/local/etc/cassandra-reaper/cassandra-reaper.yaml ]; then
+-        CONFIG_PATH="/usr/local/etc/cassandra-reaper/cassandra-reaper.yaml"
+-    else
+-        CONFIG_PATH="/etc/cassandra-reaper/cassandra-reaper.yaml"
+-    fi
++    CONFIG_PATH="/etc/cassandra-reaper/cassandra-reaper.yaml"
+ else
+     CONFIG_PATH="$@"
+ fi
