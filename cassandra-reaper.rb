@@ -18,7 +18,7 @@ class CassandraReaper < Formula
         exec "/usr/local/bin/cassandra-reaper"
       end
       output = shell_output("curl -sIm3 -o- http://localhost:8080/webui/")
-      assert_match /200 OK.*Server: cassandra, output
+      assert_match /200 OK.*/m, output
     ensure
       Process.kill("HUP", pid)
     end
