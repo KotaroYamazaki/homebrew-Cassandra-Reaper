@@ -21,7 +21,7 @@ class CassandraReaper < Formula
       output = shell_output("curl -Im3 -o- http://localhost:8080/webui/")
       assert_match /200 OK.*/m, output
     ensure
-      Process.kill("HUP", pid)
+      Process.kill("KILL", pid)
     end
   end
 
