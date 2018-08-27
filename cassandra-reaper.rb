@@ -17,7 +17,7 @@ class CassandraReaper < Formula
       pid = fork do
         exec "#{bin}/cassandra-reaper"
       end
-      output = shell_output("curl -sIm3 -o- http://localhost:8080")
+      output = shell_output("curl -sIm3 -o- http://localhost:8080/webui/")
       assert_match /200 OK.*Server: Algernon/m, output
     ensure
       Process.kill("HUP", pid)
