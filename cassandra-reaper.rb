@@ -12,11 +12,9 @@ class CassandraReaper < Formula
   end
 
   def install
-    prefix.install "bin"
-    mv "server/target", "cassandra-reaper"
-    share.install "cassandra-reaper"
-    mv "resource", "cassandra-reaper"
-    etc.install "cassandra-reaper"
+    bin.install_symlink "bin/cassandra-reaper"
+    share.install "server/target" => "cassandra-reaper"
+    etc.install "resource" => "cassandra-reaper"
   end
 
   test do
