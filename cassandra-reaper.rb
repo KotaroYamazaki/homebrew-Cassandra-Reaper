@@ -7,23 +7,30 @@ class CassandraReaper < Formula
 
   # The inline patch is temporary to update the 'cassandra-reaper' script for reading from /usr/local/.
   # Since PR [thelastpickle/cassandra-reaper#533](https://github.com/thelastpickle/cassandra-reaper/pull/533) is merged, it will be obsolete once next version is released.
-  # patch :p3 do
-  #   url "https://github.com/thelastpickle/cassandra-reaper/commit/4e26e1c70de8aa564e57ada287fffd6e7544914f.patch?full_index=1"
-  #   sha256 "7fdea1d12524e121db191c70effa91825948fa08b24b2c914d51dbfdceff485a"
-  # end
+  patch :p3 do
+    url "https://github.com/thelastpickle/cassandra-reaper/commit/4e26e1c70de8aa564e57ada287fffd6e7544914f.patch?full_index=1"
+    sha256 "7fdea1d12524e121db191c70effa91825948fa08b24b2c914d51dbfdceff485a"
+  end
 
   def install
     bin.install_symlink "bin/cassandra-reaper"
     share.install "server/target" => "cassandra-reaper"
     etc.install "resource" => "cassandra-reaper"
+    env = {:CLASS_PATH => "#{share}"}
+    (bin/"reaper").write_env_script(prefix/"cassandra-reaper", env)
   end
 
-      env = { 
-      :CLASS_PATH => "/usr/local/share/cassandra-reaper/*",
-      :CONFIG_PATH => "/usr/local/etc/cassandra-reaper/cassandra-reaper.yaml"
-       }
-    prefix.install = "bin"
-    (bin/"cassandra-reaper").write_env_script(prefix/"bin", env)
+  # ENV["CLASS_PATH"] = "share/cassandra-reaper/*"
+  # ENV["CONFIG_PATH"] = "etc/cassandra-reaper/cassandra-reaper.yaml"
+
+  # env = {:CLASS_PATH => ENV["CLASS_PATH"], :CONFIG_PATH => ENV["CONFIG_PATH"]}
+  # (bin/"cassandra-reaper").write_env_script(/usr/local/bin/"cassandra-reaper", env)
+  #     env = { 
+  #     :CLASS_PATH => "#{share}{/cassandra-reaper/*",
+  #     :CONFIG_PATH => "/usr/local/etc/cassandra-reaper/cassandra-reaper.yaml"
+  #      }
+  #   prefix.install = "bin"
+  #   (bin/"reaper").write_env_script(, env)
 
   test do
     begin
