@@ -16,6 +16,7 @@ class CassandraReaper < Formula
     prefix.install "bin/cassandra-reaper"
     share.install "server/target" => "#{share}/cassandra-reaper"
     etc.install "resource" => "cassandra-reaper"
+    inreplace prefix/"cassandra-reaper", "etc", etc
     env = {:CLASS_PATH => "#{share}"}
     (bin/"reaper").write_env_script(prefix/"cassandra-reaper", env)
   end
