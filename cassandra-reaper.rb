@@ -7,10 +7,10 @@ class CassandraReaper < Formula
   def install
     inreplace "bin/cassandra-reaper", "etc", etc
     libexec.install "bin/cassandra-reaper"
-    pkgshare.install "server/target" => "cassandra-reaper"
+    share.install "server/target" => "cassandra-reaper"
     etc.install "resource" => "cassandra-reaper"
     env = { :CLASS_PATH => "#{pkgshare}/cassandra-reaper-?.?.?.jar" }
-    (libexec/"cassandra-reaper").write_env_script(prefix/"cassandra-reaper", env)
+    (bin/"cassandra-reaper").write_env_script(libexec/"cassandra-reaper", env)
   end
 
   test do
