@@ -2,5 +2,6 @@
 
 ## install
 ```
-brew install KotaroYamazaki/cassandra-reaper/cassandra-reaper
+brew tap kotaroyamazaki/cassandra-reaper
+brew install kotaroyamazaki/cassandra-reaper/cassandra-reaper
 ```
