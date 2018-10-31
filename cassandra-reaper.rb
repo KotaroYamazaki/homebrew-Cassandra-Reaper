@@ -5,7 +5,7 @@ class CassandraReaper < Formula
   sha256 "79c190c51c3404c2efc7f7f1aafa7cfd91f2280cbb1fe719e668966836904efd"
 
   def install
-    bin.install_symlink "bin/cassandra-reaper"
+    prefix.install "bin"
     share.install "server/target" => "cassandra-reaper"
     etc.install "resource" => "cassandra-reaper"
   end
